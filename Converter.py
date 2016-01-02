@@ -5,7 +5,7 @@
 # Master Thesis Human Aspects of Information Technology
 # Tilburg University
 #
-# Read txt files provided by CERT
+# Read txt files provided by CERT (Computer Expression Recognition Toolbox)
 # Process numbers of specific Action Units for the mean
 # Store all means in a csv file
 
