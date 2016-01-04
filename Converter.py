@@ -50,7 +50,7 @@ def calculateMean(data, column):
     return averageAU
 
 # Directory with all CERT output files in .txt
-path = '/Users/Yoeri/Desktop/Data/Data/*.txt'   
+path = 'COMPLETE FILE PATH/*.txt'   
 files = glob.glob(path)
 
 # For every file in the directory, get the mean of the given Action Units
@@ -62,7 +62,7 @@ for file in files:
         data = list(csv.reader(open(file, 'rb'), delimiter='\t'))
       
         # Process data file
-        with open('/Users/Yoeri/Desktop/Data/output.csv', 'ab') as csvfile:
+        with open('COMPLETE FILE PATH/output.csv', 'ab') as csvfile:
         
             # Field names in the output csv file
             fieldnames = ['filename','AU6','AU17','AU23','AU24','Anger','Contempt','Disgust','Fear','Joy','Sad','Surprise','Neutral']
