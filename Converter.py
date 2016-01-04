@@ -50,7 +50,7 @@ def calculateMean(data, column):
     return averageAU
 
 # Directory with all CERT output files in .txt
-path = '.../*.txt'   
+path = '/Users/Yoeri/Desktop/Data/Data/*.txt'   
 files = glob.glob(path)
 
 # For every file in the directory, get the mean of the given Action Units
@@ -62,24 +62,22 @@ for file in files:
         data = list(csv.reader(open(file, 'rb'), delimiter='\t'))
       
         # Process data file
-        with open('.../output.csv', 'ab') as csvfile:
+        with open('/Users/Yoeri/Desktop/Data/output.csv', 'ab') as csvfile:
         
             # Field names in the output csv file
             fieldnames = ['filename','AU6','AU17','AU23','AU24','Anger','Contempt','Disgust','Fear','Joy','Sad','Surprise','Neutral']
             writer = csv.DictWriter(csvfile, fieldnames=fieldnames)
             writer.writeheader()
 
-			# Write filename and Action Units in one row
+	    # Write filename and Action Units in one row
             writer.writerow({'filename': str(file),'AU6': calculateMean(data, 36),'AU17': calculateMean(data, 34),'AU23': calculateMean(data, 39),'AU24': calculateMean(data, 40),'Anger': calculateMean(data, 47),'Contempt': calculateMean(data, 48),'Disgust': calculateMean(data, 49),'Fear': calculateMean(data, 50),'Joy': calculateMean(data, 51),'Sad': calculateMean(data, 52),'Surprise': calculateMean(data, 53),'Neutral': calculateMean(data, 54)})
     
     # When file is not found  
     except IOError:
         pass
     
-    # When specific number is not found
-    except IndexError:
-        pass
-    
     # When zero division goes wrong
     except ZeroDivisionError:
         pass
+    
+print "Calculation done. CERT values are exported to the given csv file."
